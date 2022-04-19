@@ -5,6 +5,7 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = React.useState("");
+  const [successMsg, setSuccessMsg] = React.useState("");
 
   const onSubmit = (event) => {
     event.preventDefault();
@@ -14,8 +15,8 @@ const Signup = () => {
         console.error(err);
         setErrorMessage("Error! " + err); // need to have a string here for it will crash
       }
-      console.log(data);
-      
+      console.log("Sign Up Response :", data);
+      setSuccessMsg("Sign up was successful.")
     });
   };
 
@@ -40,6 +41,7 @@ const Signup = () => {
           {errorMessage}{" "}
         </div>
       )}
+      {successMsg && <div style={{ color: "red" }}> {successMsg} </div>}
     </div>
   );
 };

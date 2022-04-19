@@ -12,6 +12,8 @@ const Status = () => {
     getSession().then((session) => {
       console.log("Session: ", session);
       setDisplayLogout(true); // if logged display the log butto
+    }).catch((err) => {
+      console.log("Session: " + err)
     });
   }, []);
 
